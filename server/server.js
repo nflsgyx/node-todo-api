@@ -79,11 +79,11 @@ app.patch('/todos/:id',(req,res)=>{
     body.completedAt = null;
   };
 
-  Todos.findByIdAndUpdate(id,{$set: body},{$new: true}).then((todo)=>{
+  Todos.findByIdAndUpdate(id,{$set: body},{new: true}).then((todo)=>{
     if (!todo){
       return res.status(404).send();
     }
-    res.send({todo})
+    res.send({todo});
   },(err)=>{
     res.status(400).send();
   });
